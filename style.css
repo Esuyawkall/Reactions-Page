@@ -16,6 +16,9 @@ body{
     position: relative;
     overflow-y: hidden;
 }
+.post{
+    font-size: 22px;
+}
 .title{
     display: flex;
     height: fit-content;
