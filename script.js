@@ -24,7 +24,7 @@ profile.forEach((element) => {
             element.classList.toggle('active')
             setTimeout(() => {
                 element.classList.remove('active')
-                        }, 400);
+                        }, 4000);
                 
         });
         

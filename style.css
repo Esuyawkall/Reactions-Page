@@ -14,6 +14,7 @@ body{
     padding: 20px;
     padding-right: 40px;
     position: relative;
+    overflow-y: hidden;
 }
 .title{
     display: flex;
@@ -57,11 +58,25 @@ h3{
     margin-top: 20px;
     position: absolute;
     left: 20px;
-    bottom: 10px;
+    bottom: -30px;
     font-size: 22px;
 }
 .card:hover{
-    .icon-container{display: flex;}
+    .icon-container{   display: flex;     
+    }
+    .icon-wrapper1{
+        animation: move 0.2s ease-in;
+        animation-fill-mode: forwards;
+        animation-delay: 0.1s;}
+        .icon-wrapper2{
+            animation: move 0.2s ease;
+            animation-fill-mode: forwards;
+            animation-delay: 0.2s;}
+            .icon-wrapper3{
+                animation: move 0.2s ease;
+                animation-fill-mode: forwards;
+                animation-delay: 0.3s;
+            }
 }
 
 .like-icon {
@@ -80,7 +95,7 @@ h3{
     color: red; 
     font-size: 48px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease forwards;
 }
 
 .heart-icon:hover {
@@ -101,3 +116,11 @@ h3{
 .like-icon.active,.heart-icon.active,.share-icon.active{
     transform: scale(2.0);
 }
+@keyframes move {
+    0%{
+        transform: translateX(0) translateY(0px);
+    }
+    100% {
+        transform: translateX(0) translateY(-40px);
+    }
+    }
