@@ -1,6 +1,11 @@
 body{
     font-size: larger;
 }
+h1{
+   width: 100%;
+   text-align: center;
+   color: #0b5f97;
+}
 .card{
     margin: auto;
     margin-top: 20px;
