@@ -1,0 +1,103 @@
+body{
+    font-size: larger;
+}
+.card{
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50vw;
+    height: 20vh;
+    border-radius: 10px;
+    border: solid;
+    box-shadow: 2px;
+    border-color: antiquewhite;
+    padding: 20px;
+    padding-right: 40px;
+    position: relative;
+}
+.title{
+    display: flex;
+    height: fit-content;
+    margin-bottom: 2vw;
+}
+.profile-icon {
+    margin-top: 5px;
+    width: 2.5vw;                 
+    height: 2.5vw;                
+    background-color: #3498db;    
+    color: white;                 
+    font-size: 30px;              
+    display: flex;                
+    justify-content: center;      
+    align-items: center;          
+    border-radius: 50%;           
+    font-family: Arial, sans-serif;
+}
+h3{
+    width: fit-content;
+    margin-left: 1.5vw;
+    margin-top: 14px;
+}
+.meta{
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    position: absolute; 
+    bottom: 0; 
+    right: 0;  
+    margin: 10px;    
+}
+
+.icon-container {
+    display: none;
+    flex-direction: row;
+    gap: 20px; 
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 22px;
+}
+.card:hover{
+    .icon-container{display: flex;}
+}
+
+.like-icon {
+    color: #3498db; 
+    font-size: 48px; 
+    cursor: pointer; 
+    transition: transform 0.3s ease;
+}
+
+.like-icon:hover {
+    transform: scale(1.4); 
+}
+
+
+.heart-icon {
+    color: red; 
+    font-size: 48px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.heart-icon:hover {
+    transform: scale(1.4);
+}
+
+
+.share-icon {
+    color: #2ecc71; 
+    font-size: 48px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.share-icon:hover {
+    transform: scale(1.4);
+}
+.like-icon.active,.heart-icon.active,.share-icon.active{
+    transform: scale(2.0);
+}
