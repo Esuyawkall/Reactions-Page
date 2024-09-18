@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     const counters = Array.from(counter);
     const prof = document.getElementsByClassName('profile-icon');
     const profile = Array.from(prof);
+    const popup = document.getElementById('popup');
+    const close = document.getElementById('close');
+
 
 
     function getRandomColor() {
-        const r = Math.floor(Math.random() * 256); // Red value between 0 and 255
-        const g = Math.floor(Math.random() * 256); // Green value between 0 and 255
-        const b = Math.floor(Math.random() * 256); // Blue value between 0 and 255
+        const r = Math.floor(Math.random() * 256); 
+        const g = Math.floor(Math.random() * 256); 
+        const b = Math.floor(Math.random() * 256); 
         return `rgb(${r}, ${g}, ${b})`;}
     
 profile.forEach((element) => {
@@ -20,13 +23,17 @@ profile.forEach((element) => {
 
     array.forEach((element,index) => {
         element.addEventListener('click',()=>{
+            if(element.classList.contains('share-icon')){
+                popup.style.display='flex'; 
+    }
             counters[index].innerHTML++;
             element.classList.toggle('active')
             setTimeout(() => {
                 element.classList.remove('active')
-                        }, 4000);
-                
+                        }, 400);
         });
-        
     });
+    close.addEventListener('click',()=>{
+        popup.style.display = 'none'
+    })
 });
