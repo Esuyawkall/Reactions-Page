@@ -4,23 +4,33 @@ document.addEventListener('DOMContentLoaded',()=>{
     const array = Array.from(icons);
     const counter = document.getElementsByClassName('counter');
     const counters = Array.from(counter);
-    const prof = document.getElementsByClassName('profile-icon');
+    const prof = document.getElementsByClassName('title');
+    const icon1 = document.getElementsByClassName('profile-icon');
+    const icon = Array.from(icon1);
     const profile = Array.from(prof);
     const popup = document.getElementById('popup');
     const close = document.getElementById('close');
-
-
 
     function getRandomColor() {
         const r = Math.floor(Math.random() * 256); 
         const g = Math.floor(Math.random() * 256); 
         const b = Math.floor(Math.random() * 256); 
         return `rgb(${r}, ${g}, ${b})`;}
-    
-profile.forEach((element) => {
-    element.style.backgroundColor=getRandomColor();
-})
 
+profile.forEach((element) => {
+    element.addEventListener('click',()=>{
+        const x = element.textContent.trim().split(/\s+/).filter(word => word.length > 1)[0] || '';
+        localStorage.setItem('newPostContent', x);
+        window.location.href='profile.html';        
+    });
+})
+    icon.forEach((element,index)=>{
+        element.style.backgroundColor=getRandomColor();
+        let iconLetter = String(profile[index].textContent);
+        let iconLetterw = iconLetter.trim().charAt(0) || '';        
+        element.textContent= iconLetterw;
+        localStorage.setItem('newIcon',iconLetterw);
+    })
     array.forEach((element,index) => {
         element.addEventListener('click',()=>{
             if(element.classList.contains('share-icon')){

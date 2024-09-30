@@ -28,6 +28,10 @@ h1{
     display: flex;
     height: fit-content;
     margin-bottom: 2vw;
+    width: fit-content;
+}
+.title:hover{
+    cursor: pointer;
 }
 .profile-icon {
     margin-top: 5px;
