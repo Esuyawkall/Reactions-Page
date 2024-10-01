@@ -10,24 +10,51 @@ h1{
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 50vw;
-    height: 20vh;
+    width: 25vw;
+    height: 64vh;
     border-radius: 10px;
     border: solid;
     box-shadow: 2px;
     border-color: antiquewhite;
-    padding: 20px;
-    padding-right: 40px;
+    padding-right: 20vw;
     position: relative;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 .post{
-    font-size: 22px;
+    width: 60%;
+}
+.comments{
+    border: solid;
+    border-color: black;
+    width: 40%;
+    height: 60vh;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    padding: 20px;
+}
+.comment{
+    width: 100%;
+    height: 35vh;
+    background-color: grey;
+}
+.writeComment{
+    border-radius: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-left: 2vw;
+}
+.image{
+    width: max-content;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .title{
     display: flex;
     height: fit-content;
-    margin-bottom: 2vw;
     width: fit-content;
 }
 .title:hover{
@@ -35,8 +62,8 @@ h1{
 }
 .profile-icon {
     margin-top: 5px;
-    width: 2.5vw;                 
-    height: 2.5vw;                
+    width: 5vh;                 
+    height: 5vh;                
     background-color: #3498db;    
     color: white;                 
     font-size: 25px;              
@@ -54,32 +81,33 @@ h3{
 .meta{
     background-color: #3498db;
     color: white;
-    padding: 10px;
-    position: absolute; 
-    bottom: 0; 
-    right: 0;  
-    margin: 10px;    
+    padding: 10px; 
 }
-
 .icon-container {
     display: none;
     flex-direction: row;
     gap: 20px; 
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
     position: absolute;
     left: 20px;
     bottom: -30px;
     font-size: 22px;
+    background-color: black;
+    color: white;
+    padding: 10px 20px ;
+    border-radius: 20px;
 }
 .card:hover{
-    .icon-container{   display: flex;     
+    .icon-container{   display: flex; 
+        animation: move 0.2s ease;  
+        animation-fill-mode: forwards;
     }
-    .icon-wrapper1{
+    /* .icon-wrapper1{
         animation: move 0.2s ease-in;
         animation-fill-mode: forwards;
-        animation-delay: 0.1s;}
+        animation-delay: 0.1s;
+    }
         .icon-wrapper2{
             animation: move 0.2s ease;
             animation-fill-mode: forwards;
@@ -88,7 +116,7 @@ h3{
                 animation: move 0.2s ease;
                 animation-fill-mode: forwards;
                 animation-delay: 0.3s;
-            }
+            } */
 }
 
 .like-icon {
@@ -127,6 +155,9 @@ h3{
 }
 .like-icon.active,.heart-icon.active,.share-icon.active{
     transform: scale(2.0);
+}
+.icon-wrapper{
+    background-color: grey;
 }
 @keyframes move {
     0%{

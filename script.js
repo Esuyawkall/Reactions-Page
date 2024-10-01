@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     const profile = Array.from(prof);
     const popup = document.getElementById('popup');
     const close = document.getElementById('close');
+    const image = document.getElementsByClassName('image');
+    const images = Array.from(image);
 
     function getRandomColor() {
         const r = Math.floor(Math.random() * 256); 
@@ -42,6 +44,11 @@ profile.forEach((element) => {
                 element.classList.remove('active')
                         }, 400);
         });
+    });
+    images.forEach(element => {
+        let randomNum = Math.floor(Math.random() * 1000);
+        element.setAttribute('src',`https://picsum.photos/580/700?random=${randomNum}`);
+
     });
     close.addEventListener('click',()=>{
         popup.style.display = 'none'

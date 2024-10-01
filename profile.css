@@ -1,8 +1,3 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 body {
     font-family: Arial, sans-serif;
@@ -21,7 +16,9 @@ body {
     border-bottom: 1px solid #ddd;
     padding-bottom: 20px;
 }
-
+#moreInfo{
+    font-size: 20px;
+}
 .profile-info {
     display: flex;
     align-items: center;
@@ -31,8 +28,8 @@ body {
 }
 #profile-pic {
     margin: 20px;
-    width: 5vw;                 
-    height: 5vw;                
+    width: 10vh;                 
+    height: 10vh;                
     background-color: #3498db;    
     color: white;                 
     font-size: 40px;              
