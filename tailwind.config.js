@@ -28,6 +28,9 @@ module.exports = {
         '#w50': {
           "transition": "width 0.3s ease-in-out", // CSS property in quotes
         },
+        '#w51': {
+          "transition": "width 0.3s ease-in-out", // CSS property in quotes
+        },
         
       };
 

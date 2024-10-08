@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const posts = document.querySelectorAll('.col-span-3');
     const iconsBars = document.querySelectorAll('.icons');
@@ -6,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const w50 = document.querySelector('#w50');
     const w51 = document.querySelector('#w51');
     const container = document.getElementsByClassName('container');
+
+    const postComment = document.getElementById('post');
+    const comment = document.getElementById('comment');
+    const comments = document.getElementById('comments');
+    const comment1 = document.getElementById('comment1');
 
     posts.forEach((post, index) => {
         const iconsBar = iconsBars[index];
@@ -20,36 +26,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
         icons.forEach(element => {
             element.addEventListener('click', () => {
-                if (element.getAttribute('fill') === 'red') {
-                    element.setAttribute('fill', '');
-                } else {
+                const counter = element.nextElementSibling; 
+                    let currentCount = parseInt(counter.textContent, 10);                
                     const parentDiv = element.closest('#w50') || element.closest('#w51');
 
                     if (element.classList.contains('heart')) {
+                        if (element.getAttribute('fill') === 'red') {
+                            element.setAttribute('fill', '');
+                            counter.textContent = currentCount - 1;}
+                        else{
                         element.setAttribute('fill', 'red');
-                    } else if (element.classList.contains('comment') && parentDiv) {
+                        counter.textContent = currentCount + 1;}
+                        }
+                    else if (element.classList.contains('comment')) {
                         const gridToShow = parentDiv.id === 'w50' ? grid1 : grid2; 
                         const wDivToAdjust = parentDiv.id === 'w50' ? w50 : w51;
 
+                        const childDiv = element.closest('.container');
+                        const contToAdjust = childDiv.id === 'container1' ? container[0] : container[1];
+                        
                         if (gridToShow.classList.contains('hidden')) {
                             gridToShow.classList.replace('hidden', 'flex');
                             gridToShow.classList.add('col-span-2');
                             wDivToAdjust.classList.replace('w-[30vw]', 'w-[50vw]');
-                            container[0].classList.replace('grid-cols-3','grid-cols-5');
-                        } else {
+                            contToAdjust.classList.replace('grid-cols-3','grid-cols-5');} 
+                        else {
                             gridToShow.classList.replace('flex', 'hidden');
                             gridToShow.classList.remove('col-span-2');
                             wDivToAdjust.classList.replace('w-[50vw]', 'w-[30vw]');
-                            container[0].classList.replace('grid-cols-5','grid-cols-3');
-                        }
-                    }
+                            contToAdjust.classList.replace('grid-cols-5','grid-cols-3');}
+                        
+                        postComment.addEventListener('click',()=>{
+                            if(comment.value){
+                            let com = comment.value;
 
+                            const newComment = comment1.cloneNode(true);
+                            newComment.textContent=com;
+
+                            const time = document.createElement('span');
+                            time.textContent = new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',});
+                            time.classList.add('absolute', 'bottom-0','right-0', 'text-xs', 'text-gray-500', 'p-2');
+
+                             newComment.appendChild(time);
+
+                            comments.appendChild(newComment);
+                            comment.value=''}
+                        });
+                        }
+                    else{
+                            // share popup
+                        }
                     element.classList.add('animate-like');
                     setTimeout(() => {
                         element.classList.remove('animate-like');
                     }, 600);
-                }
+                })
             });
         });
     });
-});
