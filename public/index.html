@@ -65,7 +65,7 @@
                  
               </div>
               
-              <button class="absolute top-0 right-2 bg-red-600 close" id="close">X</button>
+              <button class="absolute top-2 right-2 bg-blue-400 close size-8 rounded-full flex items-center justify-center text-xl font-bold">X</button>
             </div>
             
         </div>
@@ -124,10 +124,18 @@
                
             </div>
             
-            <button class="absolute top-0 right-2 bg-red-600 close" id="close1">X</button>
+            <button class="absolute top-2 right-2 bg-blue-400 close size-8 rounded-full flex items-center justify-center text-xl font-bold">X</button>
           </div>
-          
       </div>
+  </div>
+  <button class="flex hover:bg-gray-400 border text-xl m-auto rounded-lg w-32 h-auto justify-center my-10 py-1">Load more</button>
+  <div class=" hidden inset-0 items-center justify-center bg-black bg-opacity-50" id="sharePopup">
+  <div class="bg-gray-700 rounded-lg p-6 w-[40vw] h-[30vh] items-center justify-center flex relative">
+        <span class="absolute top-8 text-4xl text-white">share</span>
+        <input class="border-l rounded-lg h-12 w-[25vw]" id="imgUrl" type="text" readonly>
+        <button class="w-16 h-12 bg-blue-400 rounded-xl text-xl font-semibold">copy</button>
+    </div>
+    <button class="absolute top-4 right-6 text-5xl font-semibold" id="closePopup">x</button>
   </div>
 </body>
 </html>

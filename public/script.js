@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const comment = document.getElementById('comment');
     const comments = document.getElementById('comments');
     const comment1 = document.getElementById('comment1');
+    
+    const popup = document.querySelector('#sharePopup');
+    const closePopup = document.querySelector('#closePopup');
 
     posts.forEach((post, index) => {
         const iconsBar = iconsBars[index];
@@ -26,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         icons.forEach(element => {
             element.addEventListener('click', () => {
+
                 const counter = element.nextElementSibling; 
                     let currentCount = parseInt(counter.textContent, 10);                
                     const parentDiv = element.closest('#w50') || element.closest('#w51');
@@ -44,17 +48,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
                         const childDiv = element.closest('.container');
                         const contToAdjust = childDiv.id === 'container1' ? container[0] : container[1];
+
+                        const close =  wDivToAdjust.querySelector('.close');
                         
-                        if (gridToShow.classList.contains('hidden')) {
                             gridToShow.classList.replace('hidden', 'flex');
                             gridToShow.classList.add('col-span-2');
                             wDivToAdjust.classList.replace('w-[30vw]', 'w-[50vw]');
-                            contToAdjust.classList.replace('grid-cols-3','grid-cols-5');} 
-                        else {
+                            contToAdjust.classList.replace('grid-cols-3','grid-cols-5');
+
+                        close.addEventListener('click',()=>{
                             gridToShow.classList.replace('flex', 'hidden');
                             gridToShow.classList.remove('col-span-2');
                             wDivToAdjust.classList.replace('w-[50vw]', 'w-[30vw]');
-                            contToAdjust.classList.replace('grid-cols-5','grid-cols-3');}
+                            contToAdjust.classList.replace('grid-cols-5','grid-cols-3');
+                            });
                         
                         postComment.addEventListener('click',()=>{
                             if(comment.value){
@@ -74,10 +81,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                         }
                     else{
-                            // share popup
+                        popup.classList.replace('hidden','fixed');
+                        popup.classList.add('flex')
+                        closePopup.addEventListener('click',()=>{
+                            popup.classList.replace('fixed','hidden');
+                        })
                         }
                     element.classList.add('animate-like');
-                    setTimeout(() => {
+                        setTimeout(() => {
                         element.classList.remove('animate-like');
                     }, 600);
                 })
