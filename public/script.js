@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const popup = document.querySelector('#sharePopup');
     const closePopup = document.querySelector('#closePopup');
 
+    const titleContainer = document.querySelectorAll('.titleContainer')
+
     posts.forEach((post, index) => {
         const iconsBar = iconsBars[index];
         const icons = Array.from(iconsBar.querySelectorAll('.icon'));
@@ -93,5 +95,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 600);
                 })
             });
+        });
+
+        titleContainer.forEach(element => {
+            element.addEventListener('click',()=>{
+                window.location.href='profile.html';
+            })
         });
     });
