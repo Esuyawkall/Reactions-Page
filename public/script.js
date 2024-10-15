@@ -102,4 +102,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href='profile.html';
             })
         });
+
+
+        function getRandomImageUrl(width, height) {
+            return `https://picsum.photos/${width}/${height}?random=${Math.random()}`;
+          }
+          
+          const images = document.querySelectorAll('img');
+          images.forEach(img => {
+            const width = img.width || 200; 
+            const height = img.height || 300;
+            
+            img.src = getRandomImageUrl(width, height);
+            img.classList.add('cursor-pointer');
+          });
     });
