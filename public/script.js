@@ -8,16 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const w51 = document.querySelector('#w51');
     const container = document.getElementsByClassName('container');
 
-    const postComment = document.getElementById('post');
-    const comment = document.getElementById('comment');
-    const comments = document.getElementById('comments');
+    const postComment = document.querySelectorAll('.postComment');
     const comment1 = document.getElementById('comment1');
     
     const popup = document.querySelector('#sharePopup');
     const closePopup = document.querySelector('#closePopup');
 
-    const titleContainer = document.querySelectorAll('.titleContainer')
-
+    const titleContainer = document.querySelectorAll('.titleContainer');
+    const imgUrl = document.getElementById('imgUrl')
+    
     posts.forEach((post, index) => {
         const iconsBar = iconsBars[index];
         const icons = Array.from(iconsBar.querySelectorAll('.icon'));
@@ -45,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         counter.textContent = currentCount + 1;}
                         }
                     else if (element.classList.contains('comment')) {
-                        const gridToShow = parentDiv.id === 'w50' ? grid1 : grid2; 
+                        const gridToShow = parentDiv.id === 'w50' ? grid1 : grid2;
                         const wDivToAdjust = parentDiv.id === 'w50' ? w50 : w51;
 
                         const childDiv = element.closest('.container');
@@ -65,7 +64,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             contToAdjust.classList.replace('grid-cols-5','grid-cols-3');
                             });
                         
-                        postComment.addEventListener('click',()=>{
+                        postComment.forEach(element => {
+                        element.addEventListener('click',()=>{
+                            
+                            const gridToShow = parentDiv.id === 'w50' ? grid1 : grid2; 
+                            const comment = gridToShow.querySelector('.comment');
+                            const comments = gridToShow.querySelector('.comments');
+
                             if(comment.value){
                             let com = comment.value;
 
@@ -80,11 +85,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
                             comments.appendChild(newComment);
                             comment.value=''}
+                            });
                         });
                         }
                     else{
                         popup.classList.replace('hidden','fixed');
-                        popup.classList.add('flex')
+                        popup.classList.add('flex');
+                        const wDivToAdjust = parentDiv.id === 'w50' ? w50 : w51;
+
+                        const image = wDivToAdjust.querySelector('.image');                        
+
+                        imgUrl.value= image.getAttribute('src');
+                        counter.textContent = currentCount + 1;
                         closePopup.addEventListener('click',()=>{
                             popup.classList.replace('fixed','hidden');
                         })
